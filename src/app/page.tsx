@@ -49,24 +49,27 @@ export default function HomePage() {
           <div className="space-y-6">
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
               <span className="block text-slate-500 text-base font-medium mb-2">
-                Hi, I&apos;m
+                Hi, I&apos;m Elsa —
               </span>
               <span className="bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 bg-clip-text text-transparent">
-                Elsa
+                Data science–focused full‑stack engineer
               </span>
             </h1>
 
-            <h2 className="max-w-2xl text-xl font-semibold text-slate-800 sm:text-2xl">
-              Junior Software &amp; AI Engineer · Data Scientist
-            </h2>
-
             <p className="max-w-2xl text-sm text-slate-600 sm:text-base">
-              I build intelligent, production-ready software that connects{" "}
+              I work with{" "}
               <span className="font-semibold text-slate-800">
-                machine learning, data science, and modern engineering
+                real data to uncover insights
               </span>
-              . From data pipelines and models to APIs and clean UIs, I enjoy
-              turning messy data into useful products.
+              , turn those insights into{" "}
+              <span className="font-semibold text-slate-800">
+                machine learning solutions
+              </span>
+              , and then wrap everything in{" "}
+              <span className="font-semibold text-slate-800">
+                usable products and APIs
+              </span>
+              .
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -87,48 +90,50 @@ export default function HomePage() {
               About
             </h3>
             <p className="mt-2 text-2xl font-semibold text-slate-900">
-              Who I am as an engineer
+              Curious about data, focused on decisions
             </p>
           </div>
 
           <div className="grid gap-8 md:grid-cols-[3fr,2fr]">
             <div className="space-y-3 text-sm text-slate-600">
-              <p>
-                I&apos;m a junior engineer who loves building the bridge between
-                raw data, machine learning models, and real users. I care about
-                clean code, clear communication, and shipping features that
-                actually solve problems.
+              <p className="max-w-2xl">
+                I&apos;m a junior engineer who enjoys asking questions of data,
+                exploring patterns, and turning those insights into decisions,
+                not just visualizations. I&apos;m happiest when I can connect
+                the dots between business goals, data, and engineering.
               </p>
-              <p>
-                I enjoy environments where I can collaborate closely with
-                others, learn from more experienced engineers, and gradually
-                take more ownership over parts of the stack.
+              <p className="max-w-2xl">
+                I like to iterate in small experiments, learn from what the data
+                tells us, and then ship something slightly better each time.
+                For me, code is a tool to support curiosity and decision-making,
+                not an end goal by itself.
               </p>
             </div>
 
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Core focus areas
+                Core expertise
               </p>
               <ul className="grid gap-2 text-xs text-slate-600">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
                   <span>
-                    End-to-end ML &amp; data products, from exploration to
-                    deployment
+                    Data exploration &amp; analysis: EDA, cleaning, and feature
+                    engineering
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-600" />
                   <span>
-                    Modern web stacks with Python, TypeScript, React &amp;
-                    Next.js
+                    Machine learning &amp; evaluation: modeling, metrics, and
+                    validation
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-500" />
                   <span>
-                    Focus on clear metrics, experimentation, and usability
+                    Data products &amp; deployment: APIs, dashboards, and
+                    integrations
                   </span>
                 </li>
               </ul>
@@ -146,37 +151,37 @@ export default function HomePage() {
               What I work with
             </p>
             <p className="mt-2 max-w-2xl text-sm text-slate-600">
-              A focused set of skills around software engineering, machine
-              learning, and data so I can ship intelligent products end-to-end.
+              A data-first skill set that covers analysis, modeling, and the
+              engineering needed to turn models into products.
             </p>
           </div>
 
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-            {/* 1. Software engineering first */}
+            {/* 1. Data & analytics (first) */}
             <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Software engineering
+                Data &amp; analytics
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Python
+                  SQL &amp; databases
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  TypeScript / JavaScript
+                  Exploratory data analysis (EDA)
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  React / Next.js
+                  Data cleaning &amp; quality
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Node.js
+                  Dashboards / reporting (basics)
                 </span>
               </div>
             </div>
 
-            {/* 2. Machine learning & data science */}
+            {/* 2. Machine learning */}
             <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                ML &amp; data science
+                Machine learning
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
@@ -189,49 +194,49 @@ export default function HomePage() {
                   Feature engineering
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Model evaluation &amp; metrics
+                  Metrics &amp; validation
                 </span>
               </div>
             </div>
 
-            {/* 3. Data & analytics */}
+            {/* 3. Backend engineering */}
             <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Data &amp; analytics
+                Backend engineering
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  SQL &amp; databases
+                  Python · FastAPI / Django (basics)
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Data cleaning &amp; quality
+                  REST APIs &amp; integration
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Exploratory analysis
-                </span>
-                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Dashboards / reporting (basics)
-                </span>
-              </div>
-            </div>
-
-            {/* 4. Tools & practices */}
-            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Tools &amp; practices
-              </p>
-              <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
-                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Git &amp; GitHub
-                </span>
-                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Docker (basics)
-                </span>
-                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Linux / CLI
+                  Authentication &amp; simple auth flows
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
                   Testing &amp; debugging mindset
+                </span>
+              </div>
+            </div>
+
+            {/* 4. Frontend */}
+            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Frontend
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  React &amp; Next.js
+                </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  TypeScript / JavaScript
+                </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  Tailwind CSS
+                </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  Building simple, clean UIs
                 </span>
               </div>
             </div>
@@ -305,7 +310,74 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. Featured projects */}
+        {/* 5. Data workflow */}
+        <section
+          id="workflow"
+          className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-12"
+        >
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              Data workflow
+            </h3>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">
+              How I usually approach problems
+            </p>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600">
+              A simple, systematic process I try to follow from idea to
+              deployed solution.
+            </p>
+          </div>
+
+          <ol className="grid gap-4 text-sm text-slate-700 md:grid-cols-5">
+            <li className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                1 · Define
+              </p>
+              <p className="mt-2">
+                Clarify the problem, who it affects, and what success looks
+                like in measurable terms.
+              </p>
+            </li>
+            <li className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                2 · Explore data
+              </p>
+              <p className="mt-2">
+                Inspect data sources, run EDA, understand distributions, leaks,
+                and quality issues.
+              </p>
+            </li>
+            <li className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                3 · Engineer features
+              </p>
+              <p className="mt-2">
+                Create and select features that capture useful signal while
+                keeping things interpretable.
+              </p>
+            </li>
+            <li className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                4 · Train &amp; evaluate
+              </p>
+              <p className="mt-2">
+                Train models, compare baselines, choose metrics, and validate
+                with held-out data.
+              </p>
+            </li>
+            <li className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                5 · Deploy &amp; monitor
+              </p>
+              <p className="mt-2">
+                Wrap the solution in an API or UI, ship it, and monitor basic
+                performance and feedback.
+              </p>
+            </li>
+          </ol>
+        </section>
+
+        {/* 6. Featured projects */}
         <section id="projects-1" className="space-y-6 py-16">
           <div className="flex items-end justify-between gap-4">
             <div>
@@ -329,20 +401,23 @@ export default function HomePage() {
                   Intelligent churn prediction dashboard
                 </h4>
                 <p className="text-sm text-slate-600">
-                  Built a full pipeline to predict customer churn and expose
-                  model predictions through a REST API with a clean web
-                  dashboard for non-technical stakeholders.
+                  Built a full pipeline on a real customer dataset to predict
+                  churn, evaluated multiple models, and exposed predictions
+                  through a REST API with a web dashboard for stakeholders.
                 </p>
                 <p className="text-xs font-medium text-slate-500">
-                  Python · scikit-learn · FastAPI · React · SQL
+                  Python · scikit-learn · FastAPI · React · SQL · AUC / F1
                 </p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2 text-xs">
                 <span className="rounded-full bg-slate-50 px-3 py-1 text-slate-600">
-                  Data cleaning &amp; feature engineering
+                  Real-world dataset &amp; EDA
                 </span>
                 <span className="rounded-full bg-slate-50 px-3 py-1 text-slate-600">
-                  Model evaluation &amp; monitoring basics
+                  Feature engineering &amp; model selection
+                </span>
+                <span className="rounded-full bg-slate-50 px-3 py-1 text-slate-600">
+                  API + dashboard deployment
                 </span>
               </div>
             </article>
@@ -357,20 +432,23 @@ export default function HomePage() {
                   AI-powered support ticket triage
                 </h4>
                 <p className="text-sm text-slate-600">
-                  Classified incoming support tickets into priority and topic
-                  using NLP models, with a simple web interface for agents to
-                  review and override predictions.
+                  Built an NLP pipeline on historical ticket data to predict
+                  topic and priority, evaluated models with clear metrics, and
+                  deployed the system behind an API and review UI for agents.
                 </p>
                 <p className="text-xs font-medium text-slate-500">
-                  Python · NLP · FastAPI · Next.js
+                  Python · NLP · FastAPI · Next.js · F1 / accuracy
                 </p>
               </div>
               <div className="mt-4 flex flex-wrap gap-2 text-xs">
                 <span className="rounded-full bg-slate-50 px-3 py-1 text-slate-600">
-                  Text preprocessing &amp; embeddings
+                  Text preprocessing &amp; feature design
                 </span>
                 <span className="rounded-full bg-slate-50 px-3 py-1 text-slate-600">
-                  UI for human-in-the-loop
+                  Model evaluation &amp; error analysis
+                </span>
+                <span className="rounded-full bg-slate-50 px-3 py-1 text-slate-600">
+                  Deployed API + review UI
                 </span>
               </div>
             </article>
