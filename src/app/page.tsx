@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const SECTIONS = [
   { id: "hero", label: "Home" },
@@ -43,14 +44,14 @@ export default function HomePage() {
         {/* 1. Hero */}
         <section
           id="hero"
-          className="flex min-h-[80vh] flex-col justify-center gap-8 py-16"
+          className="flex min-h-[80vh] flex-col justify-center gap-10 py-16 md:flex-row md:items-center"
         >
-          <div className="inline-flex max-w-max items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
-            <span className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500" />
-            Open to: Junior Software & AI Engineer · Data Scientist
-          </div>
+          <div className="space-y-6 md:flex-1">
+            <div className="inline-flex max-w-max items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
+              <span className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500" />
+              Open to: Junior Software &amp; AI Engineer · Data Scientist
+            </div>
 
-          <div className="space-y-6">
             <h1 className="text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl">
               <span className="block text-slate-500 text-base font-medium mb-2">
                 Hi, I&apos;m Elsa —
@@ -83,6 +84,18 @@ export default function HomePage() {
               >
                 View my projects
               </a>
+            </div>
+          </div>
+
+          <div className="mt-6 flex justify-center md:mt-0 md:flex-1">
+            <div className="relative h-64 w-48 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg sm:h-80 sm:w-56">
+              <Image
+                src="/profile.jpg"
+                alt="Portrait of Elsa in a suit by the water"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
         </section>
