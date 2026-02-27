@@ -4,9 +4,11 @@ import Link from "next/link";
 
 const SECTIONS = [
   { id: "hero", label: "Home" },
+  { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects-1", label: "Featured projects" },
   { id: "projects-2", label: "Other projects" },
+  { id: "focus", label: "Focus" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -66,25 +68,48 @@ export default function HomePage() {
               turning messy data into useful products.
             </p>
 
-            {/* About me */}
-            <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                About me
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="#projects-1"
+                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
+              >
+                View my projects
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* 2. About */}
+        <section id="about" className="space-y-6 py-16">
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              About
+            </h3>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">
+              Who I am as an engineer
+            </p>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-[3fr,2fr]">
+            <div className="space-y-3 text-sm text-slate-600">
+              <p>
+                I&apos;m a junior engineer who loves building the bridge between
+                raw data, machine learning models, and real users. I care about
+                clean code, clear communication, and shipping features that
+                actually solve problems.
               </p>
-              <p className="max-w-2xl text-sm text-slate-600">
-                I&apos;m a junior engineer who loves building the bridge{" "}
-                between raw data, machine learning models, and real users. I
-                care about clean code, clear communication, and shipping
-                features that actually solve problems.
+              <p>
+                I enjoy environments where I can collaborate closely with
+                others, learn from more experienced engineers, and gradually
+                take more ownership over parts of the stack.
               </p>
             </div>
 
-            {/* Core focus areas */}
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 Core focus areas
               </p>
-              <ul className="grid gap-2 text-xs text-slate-600 sm:grid-cols-3">
+              <ul className="grid gap-2 text-xs text-slate-600">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
                   <span>
@@ -107,19 +132,10 @@ export default function HomePage() {
                 </li>
               </ul>
             </div>
-
-            <div className="flex flex-wrap items-center gap-3">
-              <a
-                href="#projects-1"
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
-              >
-                View my projects
-              </a>
-            </div>
           </div>
         </section>
 
-        {/* 2. Skills */}
+        {/* 3. Skills */}
         <section id="skills" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
