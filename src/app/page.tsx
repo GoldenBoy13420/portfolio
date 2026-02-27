@@ -5,10 +5,14 @@ import Link from "next/link";
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
+  { id: "education-experience", label: "Background" },
   { id: "skills", label: "Skills" },
   { id: "snapshot", label: "Highlights" },
+  { id: "workflow", label: "Data workflow" },
   { id: "projects-1", label: "Featured projects" },
   { id: "projects-2", label: "Other projects" },
+  { id: "services", label: "Services" },
+  { id: "achievements", label: "Achievements" },
   { id: "focus", label: "Focus" },
   { id: "contact", label: "Contact" },
 ];
@@ -141,7 +145,67 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 3. Skills */}
+        {/* 3. Education & experience */}
+        <section
+          id="education-experience"
+          className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-12"
+        >
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              Education &amp; experience
+            </h3>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">
+              Where I&apos;m coming from
+            </p>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600">
+              A quick snapshot of my formal background and the experiences that
+              shaped how I think about data and software.
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="space-y-3 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Education
+              </p>
+              <div className="space-y-2 rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="font-semibold text-slate-900">
+                  Your degree / program
+                </p>
+                <p className="text-xs text-slate-500">
+                  University name · Years · City (if relevant)
+                </p>
+                <p className="mt-2 text-xs text-slate-600">
+                  Relevant focus areas: data structures &amp; algorithms, machine
+                  learning, databases, statistics, and software engineering
+                  fundamentals.
+                </p>
+              </div>
+            </div>
+
+            <div className="space-y-3 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Experience
+              </p>
+              <div className="space-y-2 rounded-2xl border border-slate-200 bg-white p-4">
+                <p className="font-semibold text-slate-900">
+                  Internships / projects / volunteering
+                </p>
+                <p className="mt-1 text-xs text-slate-600">
+                  Briefly list roles or key projects where you applied data,
+                  ML, or software engineering in practice, even if they were
+                  academic or freelance.
+                </p>
+                <p className="mt-1 text-xs text-slate-600">
+                  Focus on situations where you helped make a decision, improve
+                  a process, or ship something used by others.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* 4. Skills */}
         <section id="skills" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
@@ -243,7 +307,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. Snapshot / highlights */}
+        {/* 5. Snapshot / highlights */}
         <section
           id="snapshot"
           className="space-y-4 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-10"
@@ -310,7 +374,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. Data workflow */}
+        {/* 6. Data workflow */}
         <section
           id="workflow"
           className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-12"
@@ -377,7 +441,7 @@ export default function HomePage() {
           </ol>
         </section>
 
-        {/* 6. Featured projects */}
+        {/* 7. Featured projects */}
         <section id="projects-1" className="space-y-6 py-16">
           <div className="flex items-end justify-between gap-4">
             <div>
@@ -455,7 +519,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. Other projects */}
+        {/* 8. Other projects */}
         <section id="projects-2" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
@@ -510,7 +574,105 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. What I'm focused on */}
+        {/* 9. Offered services */}
+        <section id="services" className="space-y-6 py-16">
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              Offered services
+            </h3>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">
+              How I can help you
+            </p>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600">
+              Clear ways I can contribute as a junior engineer on freelance
+              projects or in a team.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Data analysis &amp; dashboards
+              </p>
+              <p className="mt-2">
+                Explore datasets, clean and transform data, and build simple
+                dashboards or reports that support better decisions.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                ML models &amp; evaluation
+              </p>
+              <p className="mt-2">
+                Train baseline and improved models, compare them with clear
+                metrics, and communicate trade-offs in plain language.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Data products &amp; APIs
+              </p>
+              <p className="mt-2">
+                Wrap models and data logic into simple APIs or internal tools
+                that others can actually use in their workflow.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        {/* 10. Achievements & testimonials */}
+        <section id="achievements" className="space-y-6 py-16">
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              Achievements &amp; testimonials
+            </h3>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">
+              Proof beyond the projects
+            </p>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600">
+              Awards, recognitions, and feedback that add extra trust on top of
+              the work itself.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Achievement
+              </p>
+              <p className="mt-2 font-semibold">
+                UGRF presenter / competition participation
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Short one-liner about what you presented or achieved, focused
+                on impact or what you learned.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Achievement
+              </p>
+              <p className="mt-2 font-semibold">
+                Any award, scholarship, or notable result
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                Replace this with something specific when you have it, or keep
+                it hidden until then.
+              </p>
+            </article>
+            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Testimonial (placeholder)
+              </p>
+              <p className="mt-2 text-xs text-slate-600">
+                &quot;Here you can add a short quote from a mentor, teammate, or
+                client about what it&apos;s like to work with you.&quot;
+              </p>
+            </article>
+          </div>
+        </section>
+
+        {/* 11. What I'm focused on */}
         <section
           id="focus"
           className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-12"
@@ -559,7 +721,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 6. Contact */}
+        {/* 12. Contact */}
         <section id="contact" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
