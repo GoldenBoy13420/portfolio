@@ -6,6 +6,7 @@ const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
+  { id: "snapshot", label: "Highlights" },
   { id: "projects-1", label: "Featured projects" },
   { id: "projects-2", label: "Other projects" },
   { id: "focus", label: "Focus" },
@@ -237,7 +238,74 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 3. Featured projects */}
+        {/* 4. Snapshot / highlights */}
+        <section
+          id="snapshot"
+          className="space-y-4 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-10"
+        >
+          <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
+            <div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+                Highlights
+              </h3>
+              <p className="mt-2 text-2xl font-semibold text-slate-900">
+                Snapshot of what I&apos;ve done
+              </p>
+              <p className="mt-2 max-w-xl text-sm text-slate-600">
+                A quick overview before you dive into individual projects.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-4">
+            <div className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Projects shipped
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-slate-900">
+                6+
+              </p>
+              <p className="mt-1 text-xs text-slate-600">
+                End-to-end projects combining backend, ML, and simple UIs.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                AI integrations
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-slate-900">
+                3+
+              </p>
+              <p className="mt-1 text-xs text-slate-600">
+                NLP / ML models integrated into real applications and APIs.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Academic experience
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-slate-900">
+                UGRF
+              </p>
+              <p className="mt-1 text-xs text-slate-600">
+                Undergraduate research / project presentation experience.
+              </p>
+            </div>
+            <div className="rounded-2xl bg-white p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Strength
+              </p>
+              <p className="mt-2 text-2xl font-semibold text-slate-900">
+                Backend-first
+              </p>
+              <p className="mt-1 text-xs text-slate-600">
+                Comfortable owning APIs, data models, and integrations first.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 5. Featured projects */}
         <section id="projects-1" className="space-y-6 py-16">
           <div className="flex items-end justify-between gap-4">
             <div>
