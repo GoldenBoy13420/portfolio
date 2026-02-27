@@ -66,18 +66,33 @@ export default function HomePage() {
               turning messy data into useful products.
             </p>
 
+            {/* Quick highlights */}
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Quick highlights
+              </p>
+              <ul className="grid gap-2 text-xs text-slate-600 sm:grid-cols-3">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
+                  <span>End-to-end ML pipelines from data to deployment</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-600" />
+                  <span>Strong Python, TypeScript, and modern web stacks</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-500" />
+                  <span>Focus on clear metrics, usability, and impact</span>
+                </li>
+              </ul>
+            </div>
+
             <div className="flex flex-wrap items-center gap-3">
               <a
                 href="#projects-1"
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
               >
                 View my projects
-              </a>
-              <a
-                href="#contact"
-                className="inline-flex items-center justify-center rounded-full border border-slate-300 px-5 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-slate-50"
-              >
-                Contact me
               </a>
             </div>
           </div>
