@@ -5,8 +5,8 @@ import Link from "next/link";
 const SECTIONS = [
   { id: "hero", label: "Home" },
   { id: "skills", label: "Skills" },
-  { id: "projects-1", label: "Projects" },
-  { id: "projects-2", label: "More Work" },
+  { id: "projects-1", label: "Featured projects" },
+  { id: "projects-2", label: "Other projects" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -221,15 +221,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 3. Projects main */}
+        {/* 3. Featured projects */}
         <section id="projects-1" className="space-y-6 py-16">
           <div className="flex items-end justify-between gap-4">
             <div>
               <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-                Projects
+                Featured projects
               </h3>
               <p className="mt-2 text-2xl font-semibold text-slate-900">
-                Selected work
+                2–3 heavier, end-to-end builds
               </p>
             </div>
           </div>
@@ -293,14 +293,14 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 4. More projects */}
+        {/* 4. Other projects */}
         <section id="projects-2" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-              More work
+              Other projects
             </h3>
             <p className="mt-2 text-2xl font-semibold text-slate-900">
-              Additional projects &amp; experiments
+              Compact cards for more work
             </p>
           </div>
 
@@ -348,7 +348,56 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. Contact */}
+        {/* 5. What I'm focused on */}
+        <section
+          id="focus"
+          className="space-y-6 rounded-3xl border border-slate-200 bg-slate-50 px-6 py-12"
+        >
+          <div>
+            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
+              What I&apos;m focused on
+            </h3>
+            <p className="mt-2 text-2xl font-semibold text-slate-900">
+              Currently exploring &amp; leveling up
+            </p>
+            <p className="mt-2 max-w-2xl text-sm text-slate-600">
+              I like to keep learning and experimenting so I can bring fresh
+              ideas to the teams I work with.
+            </p>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-3">
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Production-grade ML
+              </p>
+              <p className="mt-2">
+                Making models easier to deploy, monitor, and iterate on using
+                simple MLOps tools and good engineering practices.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Modern web for AI
+              </p>
+              <p className="mt-2">
+                Building clean, responsive UIs in Next.js that make ML &amp;
+                data insights understandable to non-technical users.
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-4 text-sm text-slate-700">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                LLMs &amp; automation
+              </p>
+              <p className="mt-2">
+                Experimenting with LLMs, prompts, and small automations that
+                help with coding, analysis, and developer experience.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* 6. Contact */}
         <section id="contact" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
