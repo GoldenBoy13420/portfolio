@@ -66,23 +66,44 @@ export default function HomePage() {
               turning messy data into useful products.
             </p>
 
-            {/* Quick highlights */}
+            {/* About me */}
             <div className="space-y-2">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
-                Quick highlights
+                About me
+              </p>
+              <p className="max-w-2xl text-sm text-slate-600">
+                I&apos;m a junior engineer who loves building the bridge{" "}
+                between raw data, machine learning models, and real users. I
+                care about clean code, clear communication, and shipping
+                features that actually solve problems.
+              </p>
+            </div>
+
+            {/* Core focus areas */}
+            <div className="space-y-2">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                Core focus areas
               </p>
               <ul className="grid gap-2 text-xs text-slate-600 sm:grid-cols-3">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-600" />
-                  <span>End-to-end ML pipelines from data to deployment</span>
+                  <span>
+                    End-to-end ML &amp; data products, from exploration to
+                    deployment
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-indigo-600" />
-                  <span>Strong Python, TypeScript, and modern web stacks</span>
+                  <span>
+                    Modern web stacks with Python, TypeScript, React &amp;
+                    Next.js
+                  </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-sky-500" />
-                  <span>Focus on clear metrics, usability, and impact</span>
+                  <span>
+                    Focus on clear metrics, experimentation, and usability
+                  </span>
                 </li>
               </ul>
             </div>
