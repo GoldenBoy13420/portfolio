@@ -129,15 +129,16 @@ export default function HomePage() {
               What I work with
             </p>
             <p className="mt-2 max-w-2xl text-sm text-slate-600">
-              A blend of software engineering, machine learning, and data tools
-              to ship intelligent products end-to-end.
+              A focused set of skills around software engineering, machine
+              learning, and data so I can ship intelligent products end-to-end.
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-3">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {/* 1. Software engineering first */}
+            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Programming &amp; Frameworks
+                Software engineering
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
@@ -155,42 +156,65 @@ export default function HomePage() {
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            {/* 2. Machine learning & data science */}
+            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                ML &amp; Data Science
+                ML &amp; data science
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
                   scikit-learn
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  Pandas
+                  Pandas &amp; NumPy
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  NumPy
+                  Feature engineering
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  NLP / CV basics
+                  Model evaluation &amp; metrics
                 </span>
               </div>
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            {/* 3. Data & analytics */}
+            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Data &amp; DevOps
+                Data &amp; analytics
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  SQL
+                  SQL &amp; databases
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
-                  REST APIs
+                  Data cleaning &amp; quality
                 </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  Exploratory analysis
+                </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  Dashboards / reporting (basics)
+                </span>
+              </div>
+            </div>
+
+            {/* 4. Tools & practices */}
+            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Tools &amp; practices
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
                   Git &amp; GitHub
                 </span>
                 <span className="rounded-full bg-white px-3 py-1 shadow-sm">
                   Docker (basics)
+                </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  Linux / CLI
+                </span>
+                <span className="rounded-full bg-white px-3 py-1 shadow-sm">
+                  Testing &amp; debugging mindset
                 </span>
               </div>
             </div>
