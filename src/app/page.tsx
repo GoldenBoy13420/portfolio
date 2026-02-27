@@ -417,47 +417,24 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-8 md:grid-cols-[2fr,1fr]">
-            <form className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-1.5 text-sm">
-                  <label className="block text-xs font-medium text-slate-600">
-                    Name
-                  </label>
-                  <input
-                    type="text"
-                    className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-500"
-                    placeholder="Your name"
-                  />
-                </div>
-                <div className="space-y-1.5 text-sm">
-                  <label className="block text-xs font-medium text-slate-600">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    className="w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-500"
-                    placeholder="you@example.com"
-                  />
-                </div>
+            <div className="space-y-4 rounded-2xl border border-slate-200 bg-slate-50 p-5">
+              <p className="text-sm font-semibold text-slate-900">
+                Best way to reach me
+              </p>
+              <p className="text-sm text-slate-600">
+                Send me a short message with who you are, what you&apos;re
+                working on, and how I can help. I&apos;ll reply as soon as I
+                can.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="mailto:you@example.com"
+                  className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
+                >
+                  Email me about a role
+                </a>
               </div>
-
-              <div className="space-y-1.5 text-sm">
-                <label className="block text-xs font-medium text-slate-600">
-                  Message
-                </label>
-                <textarea
-                  className="min-h-[120px] w-full rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-900 outline-none ring-0 transition focus:border-blue-500"
-                  placeholder="Tell me a bit about what you have in mind..."
-                />
-              </div>
-
-              <button
-                type="button"
-                className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
-              >
-                Send (not wired yet)
-              </button>
-            </form>
+            </div>
 
             <div className="space-y-3 text-sm text-slate-700">
               <p className="font-semibold text-slate-900">Links</p>
