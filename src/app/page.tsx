@@ -8,8 +8,6 @@ const SECTIONS = [
   { id: "about", label: "About" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
-  { id: "achievements", label: "Achievements" },
   { id: "contact", label: "Contact" },
 ];
 
@@ -513,95 +511,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* 5. Experience / activities */}
-        <section id="experience" className="space-y-6 py-16">
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-              Experience / activities
-            </h3>
-            <p className="mt-2 text-2xl font-semibold text-slate-900">
-              Academic and project-based experience
-            </p>
-            <p className="mt-2 max-w-2xl text-sm text-slate-600">
-              A concise overview of learning-by-building in AI, data science,
-              and software development.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Academic projects
-              </p>
-              <p className="mt-2">
-                Built ML and software projects from scratch, including data
-                preparation, model training, evaluation, and basic deployment
-                through APIs or apps.
-              </p>
-            </div>
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Team collaboration
-              </p>
-              <p className="mt-2">
-                Worked in small teams using Git/GitHub, clear task breakdowns,
-                and iterative development to deliver features on time.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* 6. Achievements */}
-        <section id="achievements" className="space-y-6 py-16">
-          <div>
-            <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
-              Achievements
-            </h3>
-            <p className="mt-2 text-2xl font-semibold text-slate-900">
-              Highlights and recognition
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-3">
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Participation
-              </p>
-              <p className="mt-2 font-semibold text-slate-900">
-                Research / presentations
-              </p>
-              <p className="mt-2 text-xs text-slate-600">
-                Add academic participation, presentations, or research work here
-                (replace this placeholder).
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Technical
-              </p>
-              <p className="mt-2 font-semibold text-slate-900">
-                Notable technical projects
-              </p>
-              <p className="mt-2 text-xs text-slate-600">
-                Add anything you&apos;re proud of: competitions, hackathons, or
-                outstanding project outcomes.
-              </p>
-            </article>
-            <article className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-700">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Certificates
-              </p>
-              <p className="mt-2 font-semibold text-slate-900">
-                Courses &amp; certifications
-              </p>
-              <p className="mt-2 text-xs text-slate-600">
-                Add relevant certificates here (e.g., ML, data analysis, cloud).
-              </p>
-            </article>
-          </div>
-        </section>
-
-        {/* 7. Contact */}
+        {/* 5. Contact */}
         <section id="contact" className="space-y-6 py-16">
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-700">
