@@ -421,7 +421,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:mahmoud.abdelrauf@example.com"
+                  href="mailto:mahmoudabdelrauf84@gmail.com"
                   className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
                 >
                   Email Mahmoud
@@ -434,11 +434,11 @@ export default function HomePage() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="mailto:mahmoud.abdelrauf@example.com"
+                    href="mailto:mahmoudabdelrauf84@gmail.com"
                     className="flex items-center gap-2 text-blue-700 underline-offset-4 hover:underline"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                    <span>mahmoud.abdelrauf@example.com</span>
+                    <span>mahmoudabdelrauf84@gmail.com</span>
                   </Link>
                 </li>
                 <li>
@@ -452,11 +452,20 @@ export default function HomePage() {
                 </li>
                 <li>
                   <Link
-                    href="https://github.com/mahmoud-abdelrauf"
+                    href="https://github.com/GoldenBoy13420"
                     className="flex items-center gap-2 text-blue-700 underline-offset-4 hover:underline"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                    <span>GitHub / mahmoud-abdelrauf</span>
+                    <span>GitHub / GoldenBoy13420</span>
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="tel:+201144078696"
+                    className="flex items-center gap-2 text-blue-700 underline-offset-4 hover:underline"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                    <span>Phone / +20 114 407 8696</span>
                   </Link>
                 </li>
               </ul>
