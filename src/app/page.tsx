@@ -120,13 +120,14 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {/* Programming languages */}
             <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Programming
+                Programming languages
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
-                {["Python", "SQL", "C#"].map((s) => (
+                {["Python", "SQL", "C#", "C++", "Dart", "Java"].map((s) => (
                   <span
                     key={s}
                     className="rounded-full bg-white px-3 py-1 shadow-sm"
@@ -137,17 +138,18 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* Data science & machine learning */}
             <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Data science &amp; AI
+                Data science &amp; ML
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
                 {[
-                  "Machine learning",
                   "Data analysis",
+                  "Data preprocessing",
                   "Feature engineering",
+                  "Machine learning",
                   "Model evaluation",
-                  "Data visualization",
                 ].map((s) => (
                   <span
                     key={s}
@@ -159,21 +161,52 @@ export default function HomePage() {
               </div>
             </div>
 
+            {/* ML libraries */}
             <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Tools
+                ML libraries
               </p>
               <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
-                {["Git & GitHub", "Jupyter Notebook", "Firebase", "PyQt5"].map(
-                  (s) => (
-                    <span
-                      key={s}
-                      className="rounded-full bg-white px-3 py-1 shadow-sm"
-                    >
-                      {s}
-                    </span>
-                  ),
-                )}
+                {[
+                  "Pandas",
+                  "NumPy",
+                  "Scikit-learn",
+                  "XGBoost",
+                  "Matplotlib",
+                  "Seaborn",
+                ].map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full bg-white px-3 py-1 shadow-sm"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Backend, APIs & tools */}
+            <div className="flex h-full flex-col rounded-2xl border border-slate-200 bg-slate-50 p-4">
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
+                Backend, APIs &amp; tools
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2 text-xs font-medium text-slate-700">
+                {[
+                  "ASP.NET Core",
+                  "RESTful APIs",
+                  "JWT authentication",
+                  "Git & GitHub",
+                  "Jupyter Notebook",
+                  "Firebase",
+                  "PyQt5",
+                ].map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full bg-white px-3 py-1 shadow-sm"
+                  >
+                    {s}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
