@@ -228,6 +228,7 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
+            {/* TSP Solver */}
             <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-blue-500/70 hover:shadow-xl">
               <div className="relative h-40 w-full overflow-hidden bg-slate-100">
                 <Image
@@ -238,24 +239,34 @@ export default function HomePage() {
                 />
               </div>
               <div className="space-y-3 p-5">
-                <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-blue-800">
-                  <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
-                  Algorithms · GUI
-                </div>
                 <h4 className="text-lg font-semibold text-slate-900">
                   TSP Solver
                 </h4>
                 <p className="text-sm text-slate-600">
                   Solves the Traveling Salesman Problem using multiple
                   algorithms (Nearest Neighbor, Brute Force, Genetic Algorithm)
-                  with GUI visualization.
+                  with an interactive GUI visualization.
                 </p>
+                <ul className="space-y-1 text-xs text-slate-600">
+                  <li>• Visual comparison of routes and algorithm behavior</li>
+                  <li>• Step-by-step visualization of paths and distances</li>
+                  <li>• Performance comparison between algorithms</li>
+                </ul>
                 <p className="text-xs font-medium text-slate-500">
-                  Algorithms · Optimization · GUI visualization
+                  Tech stack: Java · Swing · Algorithms
                 </p>
+                <div className="pt-1">
+                  <Link
+                    href="https://github.com/GoldenBoy13420/Travelling-Salesman-Problem-TSP-"
+                    className="text-xs font-semibold text-blue-700 underline-offset-4 hover:underline"
+                  >
+                    View on GitHub
+                  </Link>
+                </div>
               </div>
             </article>
 
+            {/* Nota Smart Notes App */}
             <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-indigo-500/70 hover:shadow-xl">
               <div className="relative h-40 w-full overflow-hidden bg-slate-100">
                 <Image
@@ -266,10 +277,6 @@ export default function HomePage() {
                 />
               </div>
               <div className="space-y-3 p-5">
-                <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-[11px] font-semibold text-indigo-800">
-                  <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
-                  Mobile · Cloud
-                </div>
                 <h4 className="text-lg font-semibold text-slate-900">
                   Nota Smart Notes App
                 </h4>
@@ -278,12 +285,26 @@ export default function HomePage() {
                   Firebase to help users create, manage, and organize notes
                   efficiently.
                 </p>
+                <ul className="space-y-1 text-xs text-slate-600">
+                  <li>• Create, edit, and organize notes with clean UI</li>
+                  <li>• Sync notes using Firebase backend</li>
+                  <li>• Authentication and secure access to user data</li>
+                </ul>
                 <p className="text-xs font-medium text-slate-500">
-                  Flutter · Firebase · Auth · Cloud storage
+                  Tech stack: Flutter · Firebase · Authentication
                 </p>
+                <div className="pt-1">
+                  <Link
+                    href="https://github.com/GoldenBoy13420"
+                    className="text-xs font-semibold text-blue-700 underline-offset-4 hover:underline"
+                  >
+                    GitHub repo (add exact link)
+                  </Link>
+                </div>
               </div>
             </article>
 
+            {/* Dental Clinic Information System */}
             <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-sky-500/70 hover:shadow-xl">
               <div className="relative h-40 w-full overflow-hidden bg-slate-100">
                 <Image
@@ -294,10 +315,6 @@ export default function HomePage() {
                 />
               </div>
               <div className="space-y-3 p-5">
-                <div className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-3 py-1 text-[11px] font-semibold text-sky-800">
-                  <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
-                  Backend · REST APIs
-                </div>
                 <h4 className="text-lg font-semibold text-slate-900">
                   Dental Clinic Information System
                 </h4>
@@ -305,12 +322,26 @@ export default function HomePage() {
                   Backend system to manage patient records, appointments, and
                   clinical workflows using RESTful APIs.
                 </p>
+                <ul className="space-y-1 text-xs text-slate-600">
+                  <li>• CRUD operations for patients, doctors, and appointments</li>
+                  <li>• Role-based access and secure API endpoints</li>
+                  <li>• Structured database design for clinical workflows</li>
+                </ul>
                 <p className="text-xs font-medium text-slate-500">
-                  REST APIs · Database · Backend architecture
+                  Tech stack: ASP.NET Core · RESTful APIs · SQL
                 </p>
+                <div className="pt-1">
+                  <Link
+                    href="https://github.com/GoldenBoy13420/ClinicalDentistSystem"
+                    className="text-xs font-semibold text-blue-700 underline-offset-4 hover:underline"
+                  >
+                    View on GitHub
+                  </Link>
+                </div>
               </div>
             </article>
 
+            {/* Parkinson's Disease Detection */}
             <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-emerald-500/70 hover:shadow-xl">
               <div className="relative h-40 w-full overflow-hidden bg-slate-100">
                 <Image
@@ -321,10 +352,6 @@ export default function HomePage() {
                 />
               </div>
               <div className="space-y-3 p-5">
-                <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
-                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
-                  ML · Classification
-                </div>
                 <h4 className="text-lg font-semibold text-slate-900">
                   Parkinson&apos;s Disease Detection
                 </h4>
@@ -332,9 +359,22 @@ export default function HomePage() {
                   Machine learning classification using XGBoost to detect
                   Parkinson&apos;s disease from biomedical data.
                 </p>
+                <ul className="space-y-1 text-xs text-slate-600">
+                  <li>• Data preprocessing and feature selection from biomedical data</li>
+                  <li>• Training and tuning an XGBoost classifier</li>
+                  <li>• Evaluation using metrics such as accuracy and F1-score</li>
+                </ul>
                 <p className="text-xs font-medium text-slate-500">
-                  XGBoost · Feature engineering · Model evaluation
+                  Tech stack: Python · XGBoost · Pandas · Scikit-learn
                 </p>
+                <div className="pt-1">
+                  <Link
+                    href="https://github.com/GoldenBoy13420"
+                    className="text-xs font-semibold text-blue-700 underline-offset-4 hover:underline"
+                  >
+                    GitHub repo (add exact link)
+                  </Link>
+                </div>
               </div>
             </article>
           </div>
