@@ -19,7 +19,7 @@ export default function HomePage() {
       <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
           <span className="text-sm font-semibold tracking-wide text-slate-600">
-            Elsa · Portfolio
+            Mahmoud Abdelrauf · Portfolio
           </span>
           <nav className="hidden gap-4 text-sm font-medium text-slate-600 sm:flex">
             {SECTIONS.map((section) => (
@@ -42,7 +42,7 @@ export default function HomePage() {
           className="flex min-h-[80vh] flex-col justify-center gap-10 py-16 md:flex-row md:items-center"
         >
           <div className="space-y-6 md:flex-1">
-            <div className="inline-flex max-w-max items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600">
+            <div className="inline-flex max-w-max items-center gap-2 rounded-full border border-slate-200 bg-slate-50 px-3 py-1 text-xs font-medium text-slate-600 shadow-sm shadow-slate-100">
               <span className="h-2 w-2 rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500" />
               AI &amp; Data Science Engineer · Computer Science Student
             </div>
@@ -71,7 +71,7 @@ export default function HomePage() {
           </div>
 
           <div className="mt-6 flex justify-center md:mt-0 md:flex-1">
-            <div className="relative h-64 w-48 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-lg sm:h-80 sm:w-56">
+            <div className="relative h-64 w-48 overflow-hidden rounded-3xl border border-slate-200 bg-slate-100 shadow-[0_20px_60px_rgba(15,23,42,0.25)] ring-1 ring-slate-100 sm:h-80 sm:w-56">
               <Image
                 src="/profile.jpg"
                 alt="Portrait photo of Mahmoud Abdelrauf"
@@ -195,8 +195,16 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/60 p-5 shadow-sm transition hover:-translate-y-1 hover:border-blue-500/60 hover:shadow-lg">
-              <div className="space-y-3">
+            <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-blue-500/70 hover:shadow-xl">
+              <div className="relative h-40 w-full overflow-hidden bg-slate-100">
+                <Image
+                  src="/projects/tsp-solver.png"
+                  alt="Screenshot from the TSP Solver application"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="space-y-3 p-5">
                 <div className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-3 py-1 text-[11px] font-semibold text-blue-800">
                   <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
                   Algorithms · GUI
@@ -215,8 +223,16 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/60 p-5 shadow-sm transition hover:-translate-y-1 hover:border-indigo-500/60 hover:shadow-lg">
-              <div className="space-y-3">
+            <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-indigo-500/70 hover:shadow-xl">
+              <div className="relative h-40 w-full overflow-hidden bg-slate-100">
+                <Image
+                  src="/projects/nota-app.png"
+                  alt="Screenshot from Nota smart notes app"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="space-y-3 p-5">
                 <div className="inline-flex items-center gap-2 rounded-full bg-indigo-50 px-3 py-1 text-[11px] font-semibold text-indigo-800">
                   <span className="h-1.5 w-1.5 rounded-full bg-indigo-600" />
                   Mobile · Cloud
@@ -235,8 +251,16 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/60 p-5 shadow-sm transition hover:-translate-y-1 hover:border-sky-500/60 hover:shadow-lg">
-              <div className="space-y-3">
+            <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-sky-500/70 hover:shadow-xl">
+              <div className="relative h-40 w-full overflow-hidden bg-slate-100">
+                <Image
+                  src="/projects/dental-clinic.png"
+                  alt="API and data views from the Dental Clinic Information System"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="space-y-3 p-5">
                 <div className="inline-flex items-center gap-2 rounded-full bg-sky-50 px-3 py-1 text-[11px] font-semibold text-sky-800">
                   <span className="h-1.5 w-1.5 rounded-full bg-sky-600" />
                   Backend · REST APIs
@@ -254,8 +278,16 @@ export default function HomePage() {
               </div>
             </article>
 
-            <article className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white/60 p-5 shadow-sm transition hover:-translate-y-1 hover:border-emerald-500/60 hover:shadow-lg">
-              <div className="space-y-3">
+            <article className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white/60 shadow-sm transition-transform duration-300 ease-out hover:-translate-y-2 hover:border-emerald-500/70 hover:shadow-xl">
+              <div className="relative h-40 w-full overflow-hidden bg-slate-100">
+                <Image
+                  src="/projects/parkinsons.png"
+                  alt="Model results from Parkinson's disease detection project"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <div className="space-y-3 p-5">
                 <div className="inline-flex items-center gap-2 rounded-full bg-emerald-50 px-3 py-1 text-[11px] font-semibold text-emerald-800">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-600" />
                   ML · Classification
@@ -389,7 +421,7 @@ export default function HomePage() {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:mahmoud@example.com"
+                  href="mailto:mahmoud.abdelrauf@example.com"
                   className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-blue-700 via-indigo-600 to-sky-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:brightness-110"
                 >
                   Email Mahmoud
@@ -402,26 +434,29 @@ export default function HomePage() {
               <ul className="space-y-2 text-sm">
                 <li>
                   <Link
-                    href="mailto:mahmoud@example.com"
-                    className="text-blue-700 underline-offset-4 hover:underline"
+                    href="mailto:mahmoud.abdelrauf@example.com"
+                    className="flex items-center gap-2 text-blue-700 underline-offset-4 hover:underline"
                   >
-                    mahmoud@example.com
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                    <span>mahmoud.abdelrauf@example.com</span>
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="https://www.linkedin.com/in/your-username"
-                    className="text-blue-700 underline-offset-4 hover:underline"
+                    href="https://www.linkedin.com/in/mahmoud-abdelrauf"
+                    className="flex items-center gap-2 text-blue-700 underline-offset-4 hover:underline"
                   >
-                    LinkedIn
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                    <span>LinkedIn / mahmoud-abdelrauf</span>
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="https://github.com/your-username"
-                    className="text-blue-700 underline-offset-4 hover:underline"
+                    href="https://github.com/mahmoud-abdelrauf"
+                    className="flex items-center gap-2 text-blue-700 underline-offset-4 hover:underline"
                   >
-                    GitHub
+                    <span className="h-1.5 w-1.5 rounded-full bg-blue-600" />
+                    <span>GitHub / mahmoud-abdelrauf</span>
                   </Link>
                 </li>
               </ul>
