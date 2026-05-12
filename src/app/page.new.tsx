@@ -2,16 +2,9 @@
 
 import { useState, FormEvent, useEffect } from "react";
 import { useScroll, useMotionValueEvent, motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
-import { 
-  AiOutlineMenu as Menu, 
-  AiOutlineClose as X, 
-  AiOutlineCode as Code2, 
-  AiOutlineBulb as Brain, 
-  AiOutlineLineChart as TrendingUp, 
-  AiOutlineArrowUp as ArrowUpRight, 
-  AiOutlineCheck as Check 
-} from "react-icons/ai";
+import { Menu, X, ChevronDown, Code2, Brain, TrendingUp, ArrowUpRight, Github, Linkedin, Mail, Check } from "react-icons/ai";
 
 const SECTIONS = [
   { id: "hero", label: "Home" },
@@ -19,11 +12,10 @@ const SECTIONS = [
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
   { id: "projects", label: "Projects" },
-  { id: "reviews", label: "Testimonials" }, // Fixed: matching section id
+  { id: "testimonials", label: "Testimonials" },
   { id: "contact", label: "Contact" },
 ];
 
-// Fixed: Properly defined animation variants
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
@@ -31,12 +23,7 @@ const fadeInUp = {
 };
 
 const staggerContainer = {
-  animate: { 
-    transition: { 
-      staggerChildren: 0.1, 
-      delayChildren: 0.2 
-    } 
-  },
+  animate: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
 };
 
 export default function HomePage() {
@@ -49,32 +36,22 @@ export default function HomePage() {
     setIsScrolled(latest > 50);
   });
 
-  // Fixed: Improved scroll spy logic
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100; // Offset for header
+      const sections = SECTIONS.map(s => {
+        const el = document.getElementById(s.id);
+        return { id: s.id, offset: el?.offsetTop ?? 0 };
+      });
       
-      // Find the section that is currently in view
-      let currentSection = "hero";
-      for (const section of SECTIONS) {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const offsetTop = element.offsetTop;
-          const offsetBottom = offsetTop + element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
-            currentSection = section.id;
-            break;
-          }
-        }
-      }
-      
-      setActiveSection(currentSection);
+      const current = sections.reduce((prev, current) => {
+        return Math.abs(current.offset - window.scrollY) < Math.abs(prev.offset - window.scrollY)
+          ? current
+          : prev;
+      });
+      setActiveSection(current.id);
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Call once to set initial state
-    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -185,9 +162,9 @@ export default function HomePage() {
       </motion.header>
 
       <main className="relative pt-20 sm:pt-24">
-        {/* Hero Section - Keep as is, it's fine */}
+        {/* Hero Section */}
         <section id="hero" className="relative min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 py-20">
-          {/* ... rest of hero section remains the same ... */}
+          {/* Background Elements */}
           <div className="absolute inset-0 overflow-hidden">
             <motion.div
               className="absolute top-20 left-10 w-72 h-72 bg-sky-200/20 rounded-full blur-3xl"
@@ -202,13 +179,8 @@ export default function HomePage() {
           </div>
 
           <div className="relative z-10 max-w-7xl w-full grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              variants={staggerContainer} 
-              initial="initial" 
-              whileInView="animate" 
-              viewport={{ once: true }} 
-              className="space-y-6"
-            >
+            {/* Content */}
+            <motion.div variants={staggerContainer} initial="initial" whileInView="animate" viewport={{ once: true }} className="space-y-6">
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 px-4 py-2 bg-sky-50 border border-sky-200 rounded-full w-fit">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75" />
@@ -244,6 +216,7 @@ export default function HomePage() {
                 </motion.a>
               </motion.div>
 
+              {/* Stats */}
               <motion.div variants={fadeInUp} className="grid grid-cols-3 gap-4 pt-8 border-t border-slate-200">
                 {[
                   { value: "3+", label: "Years" },
@@ -258,6 +231,7 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
+            {/* Image */}
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -266,15 +240,10 @@ export default function HomePage() {
               className="relative"
             >
               <motion.div
-                className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-slate-200 shadow-2xl bg-gradient-to-br from-sky-100 to-violet-100"
+                className="relative w-full aspect-square rounded-2xl overflow-hidden border-2 border-slate-200 shadow-2xl"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                {/* Placeholder for image - add your actual image */}
-                <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                  Profile Image
-                </div>
-                {/* Uncomment when you have the image
                 <Image
                   src="/profile.jpg"
                   alt="Mahmoud Abdelrauf"
@@ -283,15 +252,14 @@ export default function HomePage() {
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                */}
               </motion.div>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-slate-950/10 to-transparent pointer-events-none" />
             </motion.div>
           </div>
         </section>
 
-        {/* About Section - Keep as is */}
-        <section id="about" className="scroll-mt-24 py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
+        {/* About Section */}
+        <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-white/50">
           <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
               <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">About Me</span>
@@ -334,7 +302,7 @@ export default function HomePage() {
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="scroll-mt-24 py-24 px-4 sm:px-6 lg:px-8">
+        <section id="experience" className="py-24 px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
               <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Experience</span>
@@ -370,7 +338,7 @@ export default function HomePage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.1 }}
                     viewport={{ once: true }}
-                    whileHover={{ y: -8 }}
+                    whileHover={{ y: -8, shadow: "0 20px 40px rgba(0,0,0,0.1)" }}
                     className="p-6 bg-white border border-slate-200 rounded-xl shadow-sm hover:shadow-lg transition"
                   >
                     <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${category.color} flex items-center justify-center mb-4`}>
@@ -391,190 +359,270 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Skills Section - Keep as is */}
-        <section id="skills" className="scroll-mt-24 py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
+        {/* Skills Section */}
+        <section id="skills" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
           <div className="max-w-7xl mx-auto">
-            <div className="space-y-3 mb-8">
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-600">Capabilities</span>
-              <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Technical strengths and tooling</h2>
-            </div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
+              <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Tech Stack</span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-950 mt-2">Languages & Frameworks</h2>
+            </motion.div>
 
-            <div className="grid gap-5 lg:grid-cols-3">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            >
               {[
-                { title: "AI & ML", items: ["Supervised learning", "Feature engineering", "Model validation", "Python / scikit-learn"] },
-                { title: "Data engineering", items: ["ETL pipelines", "SQL / Postgres", "Data cleaning", "APIs & automation"] },
-                { title: "Software delivery", items: ["Backend APIs", "Docker", "Git workflows", "Technical documentation"] },
-              ].map((group) => (
-                <div key={group.title} className="rounded-[2rem] border border-slate-200 bg-slate-50 p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                  <h3 className="text-lg font-semibold text-slate-950">{group.title}</h3>
-                  <div className="mt-5 space-y-3 text-sm text-slate-600">
-                    {group.items.map((item) => (
-                      <div key={item} className="flex items-start gap-3 rounded-2xl bg-white/80 p-3">
-                        <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-sky-500" />
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                "Python", "SQL", "C#", "C++", "Java", "JavaScript", "Dart",
+                "React", "Next.js", "ASP.NET Core", "Flask", "Docker",
+                "Git", "AWS", "Firebase", "PostgreSQL"
+              ].map((tech, i) => (
+                <motion.div
+                  key={tech}
+                  variants={fadeInUp}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  className="p-4 bg-white border-2 border-slate-200 rounded-lg font-semibold text-slate-700 text-center hover:border-sky-400 hover:shadow-md transition cursor-default"
+                >
+                  {tech}
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Projects Section */}
-        <section id="projects" className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8">
+        <section id="projects" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
           <div className="max-w-7xl mx-auto">
-            <div className="space-y-3 mb-8">
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-600">Featured work</span>
-              <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Selected projects with impact</h2>
-              <p className="max-w-2xl text-sm leading-7 text-slate-600">A curated selection of projects that combine analytics, software engineering, and product thinking.</p>
-            </div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
+              <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Portfolio</span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-950 mt-2">Featured Projects</h2>
+            </motion.div>
 
-            <div className="grid gap-6 xl:grid-cols-2">
+            <div className="grid lg:grid-cols-2 gap-8">
               {[
                 {
                   title: "Pixalyze – Image Processing Platform",
-                  description: "A full-stack platform for image filtering, analysis, and visualization with Python backend and React front-end.",
-                  details: ["Real-time histogram visualization", "Spatial filtering and frequency transforms", "Automated image preprocessing"],
-                  badge: "Computer vision",
-                  href: "https://github.com/GoldenBoy13420/Pixalyze",
+                  description: "Full-stack platform for advanced image analysis with real-time visualization.",
+                  tech: ["React", "Python", "OpenCV", "Flask"],
+                  highlights: ["Histogram analysis", "Spatial filtering", "FFT transforms"],
+                  link: "https://github.com/GoldenBoy13420/Pixalyze",
+                  color: "from-blue-500 to-cyan-500",
                 },
                 {
                   title: "Economic Indicators Analysis",
-                  description: "Exploratory analysis of global economic data to highlight relationships between GDP, internet access, and human development.",
-                  details: ["World Bank and UNDP integration", "Time-series evaluation", "Statistical correlation storytelling"],
-                  badge: "Data analysis",
-                  href: "https://github.com/GoldenBoy13420",
+                  description: "Data analysis of global economic trends and relationships.",
+                  tech: ["Python", "Pandas", "Matplotlib", "Jupyter"],
+                  highlights: ["World Bank data", "Statistical analysis", "Visualizations"],
+                  link: "https://github.com/GoldenBoy13420",
+                  color: "from-emerald-500 to-teal-500",
                 },
                 {
                   title: "Cancer Classification Pipeline",
-                  description: "Genomic mutation feature engineering and ML modeling for cancer type classification using TCGA datasets.",
-                  details: ["Mutation signature engineering", "Gradient boosting models", "Performance evaluation and reporting"],
-                  badge: "Machine learning",
-                  href: "https://github.com/GoldenBoy13420",
+                  description: "ML system for cancer type classification using mutation signatures.",
+                  tech: ["Python", "XGBoost", "scikit-learn", "TensorFlow"],
+                  highlights: ["Feature engineering", "Model optimization", "TCGA dataset"],
+                  link: "https://github.com/GoldenBoy13420",
+                  color: "from-purple-500 to-pink-500",
                 },
                 {
                   title: "Dental Clinic API System",
-                  description: "Backend service for patient management, appointments, and secure data flows with role-based access.",
-                  details: ["RESTful endpoints", "CRUD resource design", "Authentication and authorization"],
-                  badge: "Backend development",
-                  href: "https://github.com/GoldenBoy13420/ClinicalDentistSystem",
+                  description: "Backend system for patient management and appointments.",
+                  tech: ["ASP.NET Core", "SQL", "REST API", "JWT"],
+                  highlights: ["CRUD operations", "Role-based access", "Authentication"],
+                  link: "https://github.com/GoldenBoy13420/ClinicalDentistSystem",
+                  color: "from-orange-500 to-red-500",
                 },
-              ].map((project) => (
-                <article key={project.title} className="group overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-sm transition hover:-translate-y-2 hover:shadow-xl">
-                  <div className="bg-slate-950/5 p-6">
-                    <div className="mb-4 inline-flex rounded-full bg-sky-100 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.25em] text-sky-700">
-                      {project.badge}
-                    </div>
-                    <h3 className="text-2xl font-semibold text-slate-950">{project.title}</h3>
-                    <p className="mt-4 text-sm leading-7 text-slate-600">{project.description}</p>
+              ].map((project, i) => (
+                <motion.a
+                  key={project.title}
+                  href={project.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ y: -8 }}
+                  className="group p-6 bg-white border-2 border-slate-200 rounded-xl hover:border-slate-300 hover:shadow-lg transition overflow-hidden"
+                >
+                  <div className={`w-12 h-12 rounded-lg bg-gradient-to-r ${project.color} flex items-center justify-center mb-4 group-hover:scale-110 transition`}>
+                    <Code2 className="w-6 h-6 text-white" />
                   </div>
-                  <div className="space-y-3 border-t border-slate-200 p-6">
-                    {project.details.map((item) => (
-                      <div key={item} className="flex items-start gap-3 text-sm text-slate-600">
-                        <span className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-sky-500" />
-                        <span>{item}</span>
-                      </div>
+                  <h3 className="text-xl font-bold text-slate-950 mb-2 group-hover:text-sky-600 transition">{project.title}</h3>
+                  <p className="text-slate-600 text-sm mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.tech.map((t) => (
+                      <span key={t} className="px-2 py-1 text-xs bg-slate-100 text-slate-600 rounded">
+                        {t}
+                      </span>
                     ))}
-                    <a href={project.href} target="_blank" rel="noopener noreferrer" className="inline-flex text-sm font-semibold text-sky-700 transition hover:text-sky-900">
-                      View details →
-                    </a>
                   </div>
-                </article>
+                  <ul className="space-y-1 text-sm text-slate-600 mb-4">
+                    {project.highlights.map((h, i) => (
+                      <li key={i} className="flex items-center gap-2">
+                        <ArrowUpRight className="w-3 h-3 text-sky-600" /> {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex items-center gap-2 text-sky-600 font-semibold text-sm group-hover:gap-3 transition">
+                    View on GitHub <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </motion.a>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Reviews Section - Fixed ID from "testimonials" to "reviews" */}
-        <section id="reviews" className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8">
+        {/* Testimonials Section */}
+        <section id="testimonials" className="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-50 to-white">
           <div className="max-w-7xl mx-auto">
-            <div className="space-y-3 mb-8">
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-600">Reviews</span>
-              <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Trusted by collaborators and stakeholders</h2>
-            </div>
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-16">
+              <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Testimonials</span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-950 mt-2">Trusted by collaborators</h2>
+            </motion.div>
 
-            <div className="grid gap-6 lg:grid-cols-3">
+            <motion.div
+              variants={staggerContainer}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              className="grid md:grid-cols-3 gap-8"
+            >
               {[
                 {
-                  quote: "Mahmoud translated a complex dataset into a clean, usable product quickly and professionally.",
-                  name: "Sara Hassan",
+                  quote: "Mahmoud transformed our raw data into a polished, actionable product. His expertise in both ML and backend systems is exceptional.",
+                  author: "Sara Hassan",
                   role: "Project Manager",
                 },
                 {
-                  quote: "He delivered thoughtful automation and clear insights that helped our team move faster.",
-                  name: "Omar Youssef",
+                  quote: "His attention to detail and problem-solving approach helped us optimize our data pipeline significantly. A true professional.",
+                  author: "Omar Youssef",
                   role: "Data Analyst",
                 },
                 {
-                  quote: "The collaboration was smooth, and the final solution was well documented and reliable.",
-                  name: "Laila Amin",
-                  role: "Product Lead",
+                  quote: "Clean code, clear communication, and reliable delivery. Mahmoud is exactly the kind of engineer you want on your team.",
+                  author: "Laila Amin",
+                  role: "Tech Lead",
                 },
-              ].map((review) => (
-                <div key={review.name} className="rounded-[2rem] border border-slate-200 bg-slate-50 p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                  <p className="text-base leading-8 text-slate-700">“{review.quote}”</p>
-                  <p className="mt-6 text-sm font-semibold text-slate-950">{review.name}</p>
-                  <p className="text-sm text-slate-500">{review.role}</p>
-                </div>
+              ].map((testimonial, i) => (
+                <motion.div
+                  key={i}
+                  variants={fadeInUp}
+                  whileHover={{ y: -4 }}
+                  className="p-6 bg-white border-2 border-slate-200 rounded-xl hover:border-sky-200 hover:shadow-lg transition"
+                >
+                  <div className="flex gap-1 mb-4">
+                    {[...Array(5)].map((_, j) => (
+                      <span key={j} className="text-yellow-400">★</span>
+                    ))}
+                  </div>
+                  <p className="text-slate-600 italic mb-4">"{testimonial.quote}"</p>
+                  <p className="font-semibold text-slate-950">{testimonial.author}</p>
+                  <p className="text-sm text-slate-500">{testimonial.role}</p>
+                </motion.div>
               ))}
-            </div>
+            </motion.div>
           </div>
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="scroll-mt-24 py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <div className="space-y-3 mb-8">
-              <span className="text-sm font-semibold uppercase tracking-[0.28em] text-sky-600">Contact</span>
-              <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">Get in touch</h2>
-              <p className="max-w-2xl text-sm leading-7 text-slate-600">Ready to discuss a project, collaboration, or internship? Send a message and I'll respond within one business day.</p>
+        <section id="contact" className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
+          <div className="max-w-4xl mx-auto">
+            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-center mb-12">
+              <span className="text-sm font-semibold text-sky-600 uppercase tracking-wider">Let's Connect</span>
+              <h2 className="text-4xl sm:text-5xl font-bold text-slate-950 mt-2">Ready to work together?</h2>
+              <p className="text-lg text-slate-600 mt-4">Get in touch for collaboration, consulting, or just a friendly conversation.</p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {[
+                { icon: Mail, label: "Email", value: "mahmoudabdelrauf84@gmail.com", href: "mailto:mahmoudabdelrauf84@gmail.com" },
+                { icon: Linkedin, label: "LinkedIn", value: "mahmoud-abdelrauf", href: "https://www.linkedin.com/in/mahmoud-abdelrauf" },
+                { icon: Github, label: "GitHub", value: "GoldenBoy13420", href: "https://github.com/GoldenBoy13420" },
+              ].map((contact, i) => {
+                const Icon = contact.icon;
+                return (
+                  <motion.a
+                    key={i}
+                    href={contact.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -4 }}
+                    className="p-6 bg-gradient-to-br from-slate-50 to-slate-100 border-2 border-slate-200 rounded-xl hover:border-sky-300 hover:shadow-lg transition text-center"
+                  >
+                    <div className="w-12 h-12 bg-sky-600 rounded-lg flex items-center justify-center mx-auto mb-4">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <h3 className="font-semibold text-slate-950 mb-1">{contact.label}</h3>
+                    <p className="text-sm text-slate-600 hover:text-sky-600 transition">{contact.value}</p>
+                  </motion.a>
+                );
+              })}
             </div>
 
-            <div className="grid gap-8 xl:grid-cols-[1fr_0.95fr]">
-              <div className="space-y-6 rounded-[2rem] border border-slate-200 bg-slate-950/5 p-8 shadow-sm">
-                <div className="rounded-[1.75rem] bg-white/95 p-6 shadow-sm">
-                  <p className="text-sm font-semibold uppercase tracking-[0.26em] text-slate-500">Contact details</p>
-                  <div className="mt-6 space-y-4 text-sm text-slate-700">
-                    <div>
-                      <p className="font-semibold text-slate-950">Email</p>
-                      <p className="text-slate-600">mahmoudabdelrauf84@gmail.com</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-slate-950">Phone</p>
-                      <p className="text-slate-600">+20 114 407 8696</p>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-slate-950">LinkedIn</p>
-                      <a href="https://www.linkedin.com/in/mahmoud-abdelrauf" target="_blank" rel="noopener noreferrer" className="text-sky-700 transition hover:text-sky-900">linkedin.com/in/mahmoud-abdelrauf</a>
-                    </div>
-                  </div>
-                </div>
-                <div className="rounded-[1.75rem] bg-slate-100 p-6 text-sm leading-7 text-slate-700">
-                  <p className="font-semibold text-slate-950">Open to</p>
-                  <ul className="mt-4 space-y-2 list-disc pl-5 text-slate-600">
-                    <li>AI / data science consulting</li>
-                    <li>Custom analytics and automation</li>
-                    <li>Backend and API development</li>
-                    <li>Internships and collaborative projects</li>
-                  </ul>
-                </div>
-              </div>
-
-              <ContactForm />
-            </div>
+            {/* Contact Form */}
+            <ContactForm />
           </div>
         </section>
-
-        <footer className="max-w-7xl mx-auto rounded-[2rem] border border-slate-200 bg-white/90 p-8 text-center text-sm text-slate-500 shadow-sm">
-          <p>© {new Date().getFullYear()} Mahmoud Abdelrauf. Built with Next.js and Tailwind CSS.</p>
-        </footer>
       </main>
+
+      {/* Footer */}
+      <motion.footer
+        className="border-t border-slate-200 bg-slate-50"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+          <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div>
+              <h3 className="font-bold text-slate-950 mb-4">Mahmoud A.</h3>
+              <p className="text-sm text-slate-600">AI & Data Science Engineer</p>
+            </div>
+            {[
+              { title: "Work", links: ["Portfolio", "GitHub", "Projects"] },
+              { title: "Connect", links: ["Email", "LinkedIn", "Twitter"] },
+              { title: "Resources", links: ["Blog", "Resume", "Talks"] },
+            ].map((col, i) => (
+              <div key={i}>
+                <h4 className="font-semibold text-slate-950 mb-3">{col.title}</h4>
+                <ul className="space-y-2">
+                  {col.links.map((link) => (
+                    <li key={link} className="text-sm text-slate-600 hover:text-slate-900 transition cursor-pointer">
+                      {link}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+          <div className="border-t border-slate-200 pt-8 text-center text-sm text-slate-600">
+            <p>© {new Date().getFullYear()} Mahmoud Abdelrauf. All rights reserved.</p>
+          </div>
+        </div>
+      </motion.footer>
+
+      {/* Back to Top Button */}
+      <motion.button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className="fixed bottom-8 right-8 w-12 h-12 bg-sky-600 text-white rounded-full flex items-center justify-center shadow-lg hover:bg-sky-700 transition z-40"
+        initial={{ opacity: 0, scale: 0 }}
+        animate={isScrolled ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        <ChevronDown className="w-6 h-6 rotate-180" />
+      </motion.button>
     </div>
   );
 }
 
-// ContactForm component - defined outside
 function ContactForm() {
   const [formState, setFormState] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -584,13 +632,13 @@ function ContactForm() {
     event.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate API call - replace with actual endpoint
     try {
-      await new Promise((resolve) => setTimeout(resolve, 900));
+      // Simulate form submission
+      await new Promise((resolve) => setTimeout(resolve, 1000));
       setSubmitStatus("success");
       setFormState({ name: "", email: "", message: "" });
       setTimeout(() => setSubmitStatus("idle"), 5000);
-    } catch {
+    } catch (error) {
       setSubmitStatus("error");
       setTimeout(() => setSubmitStatus("idle"), 5000);
     } finally {
@@ -604,57 +652,58 @@ function ContactForm() {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="space-y-6 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm"
+      className="max-w-2xl mx-auto p-8 bg-gradient-to-br from-slate-50 to-slate-100 border-2 border-slate-200 rounded-xl"
     >
-      <div className="grid gap-5 sm:grid-cols-2">
-        <label className="space-y-2 text-sm text-slate-700">
-          <span>Name</span>
+      <div className="grid sm:grid-cols-2 gap-4 mb-4">
+        <div>
+          <label className="block text-sm font-semibold text-slate-950 mb-2">Name</label>
           <input
             type="text"
             required
             value={formState.name}
             onChange={(e) => setFormState({ ...formState, name: e.target.value })}
-            className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
+            className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-sky-500 focus:outline-none transition"
             placeholder="Your name"
           />
-        </label>
-        <label className="space-y-2 text-sm text-slate-700">
-          <span>Email</span>
+        </div>
+        <div>
+          <label className="block text-sm font-semibold text-slate-950 mb-2">Email</label>
           <input
             type="email"
             required
             value={formState.email}
             onChange={(e) => setFormState({ ...formState, email: e.target.value })}
-            className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-100"
+            className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-sky-500 focus:outline-none transition"
             placeholder="your@email.com"
           />
-        </label>
+        </div>
       </div>
-      <label className="space-y-2 text-sm text-slate-700">
-        <span>Message</span>
+      <div className="mb-4">
+        <label className="block text-sm font-semibold text-slate-950 mb-2">Message</label>
         <textarea
           required
           rows={5}
           value={formState.message}
           onChange={(e) => setFormState({ ...formState, message: e.target.value })}
-          className="w-full rounded-3xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-900 outline-none transition focus:border-sky-500 focus:ring-2 focus:ring-sky-100 resize-none"
-          placeholder="Tell me about your project..."
+          className="w-full px-4 py-2 rounded-lg border-2 border-slate-300 focus:border-sky-500 focus:outline-none transition resize-none"
+          placeholder="Your message..."
         />
-      </label>
+      </div>
+
       <motion.button
         type="submit"
         disabled={isSubmitting}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.97 }}
-        className="inline-flex w-full items-center justify-center rounded-full bg-gradient-to-r from-sky-600 via-blue-600 to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-500/10 transition hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-60"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        className="w-full px-6 py-3 bg-sky-600 text-white font-semibold rounded-lg hover:bg-sky-700 disabled:bg-slate-400 transition flex items-center justify-center gap-2"
       >
         {isSubmitting ? (
-          <span className="flex items-center gap-2">
-            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+          <>
+            <motion.span animate={{ rotate: 360 }} transition={{ duration: 1, repeat: Infinity }} className="w-4 h-4 border-2 border-white border-t-transparent rounded-full" />
             Sending...
-          </span>
+          </>
         ) : (
-          "Send message"
+          "Send Message"
         )}
       </motion.button>
 
@@ -664,9 +713,10 @@ function ContactForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="rounded-3xl border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-700"
+            className="mt-4 p-4 bg-emerald-50 border-2 border-emerald-300 rounded-lg flex items-center gap-2 text-emerald-700"
           >
-            Thanks! Your message has been received. I'll reply shortly.
+            <Check className="w-5 h-5" />
+            <span>Thanks! I'll get back to you soon.</span>
           </motion.div>
         )}
         {submitStatus === "error" && (
@@ -674,9 +724,9 @@ function ContactForm() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10 }}
-            className="rounded-3xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+            className="mt-4 p-4 bg-red-50 border-2 border-red-300 rounded-lg flex items-center gap-2 text-red-700"
           >
-            Something went wrong. Please try again in a moment.
+            <span>Something went wrong. Please try again.</span>
           </motion.div>
         )}
       </AnimatePresence>
