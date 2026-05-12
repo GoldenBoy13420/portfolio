@@ -272,10 +272,7 @@ export default function HomePage() {
               >
                 {/* Placeholder for image - add your actual image */}
                 <div className="absolute inset-0 flex items-center justify-center text-slate-400">
-                  Profile Image
-                </div>
-                {/* Uncomment when you have the image
-                <Image
+                  <Image
                   src="/profile.jpg"
                   alt="Mahmoud Abdelrauf"
                   fill
@@ -283,7 +280,9 @@ export default function HomePage() {
                   priority
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-                */}
+                </div>
+
+               
               </motion.div>
               <div className="absolute inset-0 rounded-2xl bg-gradient-to-t from-slate-950/10 to-transparent pointer-events-none" />
             </motion.div>
